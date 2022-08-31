@@ -16,7 +16,7 @@ const findOrCreateRoom = async (room) => {
 		await client.video.rooms(room).fetch();
 	} catch (err) {
 		if (err.code == 20404) {
-			await twilio.video.rooms.create({
+			await client.video.rooms.create({
 				uniqueName: room,
 				type: "go",
 			});
